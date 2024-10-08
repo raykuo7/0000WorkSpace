@@ -130,7 +130,8 @@ def main():
     print(clipboard_content)
 
     # 輸入需要上色的文字
-    word = input("請輸入要上色的文字：")
+    # word = input("請輸入要上色的文字：")
+    word = clipboard_content
 
     # 顯示顏色選項並讓使用者選擇
     colors = display_color_options()
