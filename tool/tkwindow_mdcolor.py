@@ -1,5 +1,6 @@
 from ttkthemes import ThemedTk
 from tkinter import ttk
+import tkinter as tk
 
 import re
 import pyperclip
@@ -61,7 +62,7 @@ def main_color():
 class Window(ThemedTk):
     def __init__(self,*args,**kwargs):
         super().__init__(*args,**kwargs)
-        self.geometry("500x600")
+        self.geometry("650x600")
         self.title("MD color")
 
         style = ttk.Style(self)        
@@ -74,18 +75,28 @@ class Window(ThemedTk):
     
         frame1 = ttk.Frame(topFrame,borderwidth=3,width=350,relief='groove')
 
-        label1 = ttk.Label(frame1, text="您的輸入")
+        label1 = ttk.Label(frame1, text="剪貼簿內容：")
         label1.pack()
-        self.label2 = ttk.Label(frame1, text="")
+
+        self.copyboard = tk.StringVar()
+        self.label2 = ttk.Label(frame1, textvariable=self.copyboard)
         self.label2.pack()
+        
         frame1.pack(padx=10,pady=(10,0),ipadx=10,ipady=5,fill='y')
         topFrame.pack(padx=10,pady=(10,0),ipadx=10,ipady=10,fill='x')
         
     # mainframe=========================================================== #
+        mainframe = ttk.Frame(self, borderwidth=2, relief='groove')
+
+
+
+
+        mainframe.pack(padx=10, pady=10, ipadx=10, ipady=10,fill='x')
+    # method============================================================== #
 
     def copypaste(self):
         clipboard_content = pyperclip.paste()
-        self.label2
+        self.copyboard.set(clipboard_content)
         pass
     
     

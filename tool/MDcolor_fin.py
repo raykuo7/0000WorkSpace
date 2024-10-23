@@ -37,7 +37,7 @@ def main():
     print("剪貼簿內容：")
     print(clipboard_content)
 
-    word = clipboard_content
+    word = clipboard_cnt
 
     colors = display_color_options()
     color_choice = int(input("請輸入顏色的數字選項："))
